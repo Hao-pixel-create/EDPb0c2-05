@@ -38,20 +38,16 @@ public class Principal {
      * 
      *********************************************************************/
     public static void main(String[] args) {
-        String ruta = "gp.txt"; // Nombre del fichero a leer
+        String ruta = "gp.txt"; 
 
         try {
-            // Se crea un lector secuencial para objetos de tipo Satelite
+            
             FicheroSecuencial<Satelite> fichero = new FicheroSecuencial<>(ruta, ",");
-
             System.out.println("=== SATÉLITES CON MÁS DE 10 ÓRBITAS DIARIAS ===\n");
-
-            // Bucle de lectura secuencial
             while (!fichero.finFichero()) {
                 Satelite s = new Satelite();
 
                 if (fichero.leerRegistro(s)) {
-                    // Mostramos solo los que superen las 10 órbitas diarias
                     if (s.getMovimientoMedio() > 10) {
                         System.out.println(s);
                     }

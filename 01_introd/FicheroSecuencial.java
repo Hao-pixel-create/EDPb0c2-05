@@ -116,25 +116,22 @@ public class FicheroSecuencial<T extends Leible> {
      * 
      *********************************************************************/
     public boolean leerRegistro(T objeto) throws IOException {
-        String linea; // Almacena la línea actual del fichero
+        String linea;
 
-        // Si la cabecera aún no ha sido leída, la descartamos
         if (!cabeceraLeida) {
             lector.readLine();
             cabeceraLeida = true;
         }
 
-        linea = lector.readLine(); // Leemos la siguiente línea
+        linea = lector.readLine();
 
         if (linea == null) {
             finFichero = true;
             return false;
         }
 
-        // Separamos la línea por el carácter delimitador
         String[] campos = linea.split(separador, -1);
 
-        // Llamamos al método del objeto que interpretará los datos
         objeto.leerDatos(campos);
 
         return true;

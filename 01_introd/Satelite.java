@@ -13,11 +13,11 @@
  *********************************************************************/
 public class Satelite implements Leible {
 
-    String nombre;        // Nombre del satélite
-    String designador;    // Designador internacional del satélite (ej. "2020-025A")
-    String epoch;         // Fecha y hora de referencia del registro orbital
-    double movimientoMedio; // Número de órbitas que realiza al día
-    double inclinacion;     // Inclinación de la órbita en grados
+    String nombre;       
+    String designador;   
+    String epoch;        
+    double movimientoMedio; 
+    double inclinacion;     
 
     /*********************************************************************
      * 
@@ -37,8 +37,6 @@ public class Satelite implements Leible {
     @Override
     public void leerDatos(String[] campos) {
         try {
-            // Orden de columnas del CSV de Celestrak:
-            // 0: OBJECT_NAME, 1: OBJECT_ID, 2: EPOCH, 3: MEAN_MOTION, 5: INCLINATION
             if (campos.length < 6)
                 return;
 
@@ -49,7 +47,6 @@ public class Satelite implements Leible {
             inclinacion = Double.parseDouble(campos[5]);
 
         } catch (NumberFormatException e) {
-            // Puede fallar si la línea es la cabecera o hay campos vacíos
         }
     }
 
