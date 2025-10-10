@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://celestrak.org/NORAD/elements/table.php?GROUP=weather&FORMAT=csv -->
+<html><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/content/location/location.js" id="nimlmejbmnecnaghgmbahmbaddhjbecg"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/extend-native-history-api.js"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title _msttexthash="262600" _msthash="0">CelesTrak: Clima</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script language="JavaScript" src="./CelesTrak_files/data.js.descargar"></script><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/executors/traffic.js"></script>
+
+<link rel="stylesheet" href="./CelesTrak_files/bootstrap.min.css">
+<script src="./CelesTrak_files/jquery-3.7.1.min.js.descargar"></script>
+<script src="./CelesTrak_files/popper.min.js.descargar"></script>
+<script src="./CelesTrak_files/bootstrap.min.js.descargar"></script>
+
+<link rel="stylesheet" type="text/css" href="./CelesTrak_files/new-site.css">
+
+<link rel="stylesheet" href="./CelesTrak_files/all.css">
+
+<link rel="stylesheet" type="text/css" href="./CelesTrak_files/dataTables.mod.css">
+
+<script type="text/javascript" charset="utf8" src="./CelesTrak_files/datatables.min.js.descargar"></script>
+
+<style>
+  table th.small { font-size: 70%; font-weight: bold; padding: 10px 18px; }
+  table td.small { font-size: 70%; }
+</style>
+
+<style>
+  table.dataTable th { font-size: 70%; }
+  table.dataTable td { font-size: 70%; }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+      $('#tableID').dataTable( {
+        "order": [[ 1, "asc" ]],
+      	"filter": true,
+      	"lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+      	"pageLength": 25,
+      	  "pagingType": "full_numbers"
+      	 } );
+      });
+</script>
+<script type="text/javascript">
+  function openWindowAltitude(catnr, plusArg) {
+    var leftSide = window.screenLeft + 100;
+    var topSide = window.screenTop + 100;
+    popupWin = window.open(`/NORAD/elements/graph-altitude.php?CATNR=${catnr}${plusArg}`, 'Altitude-GP', `scrollbars,resizable,width=1000,height=640,left=${leftSide},top=${topSide}`);
+  }
+  function openWindowGEO(catnr) {
+    var leftSide = window.screenLeft + 100;
+    var topSide = window.screenTop + 100;
+    popupWin = window.open(`/NORAD/elements/graph-geo.php?CATNR=${catnr}`, 'GEO-GP', `scrollbars,resizable,width=1000,height=640,left=${leftSide},top=${topSide}`);
+  }
+  function openWindowOrbitData(catnr) {
+    var leftSide = window.screenLeft + 100;
+    var topSide = window.screenTop + 100;
+    popupWin = window.open(`/NORAD/elements/graph-orbit-data.php?CATNR=${catnr}`, 'Orbit-GP', `scrollbars,resizable,width=1000,height=640,left=${leftSide},top=${topSide}`);
+  }
+</script>
+
+</head>
+
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6Im5pbWxtZWpibW5lY25hZ2hnbWJhaG1iYWRkaGpiZWNnIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjMzIiwic2NvcmUiOjIwMDMzfV0=" __processed_604e7c9e-605b-4867-9d3c-6bebf5035d2b__="true">
+
+<div class="container" bis_skin_checked="1">
+
+<nav class="navbar navbar-expand-lg lightBG navbar-light">
+	<a class="navbar-brand" href="https://celestrak.org/"><font _mstmutation="1" _msttexthash="129701" _msthash="2">CelesTrak</font><sup>®</sup>
+  <img src="./CelesTrak_files/CT-icon-256-t.png" alt="CelesTrak" style="width: 64px;" _mstalt="129701" _msthash="1"></a>
+	<!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+	<!-- Navbar links -->
+	<div class="collapse navbar-collapse" id="collapsibleNavbar" bis_skin_checked="1">
+  <ul class="navbar-nav">
+  	<li class="nav-item" dropdown="">
+			<a class="nav-link dropdown-toggle" href="https://celestrak.org/NORAD/elements/table.php?GROUP=weather&amp;FORMAT=csv#" id="navbardrop" data-toggle="dropdown" _msttexthash="261300" _msthash="3">Datos orbitales</a>
+      <div class="dropdown-menu lightBG mediumSize" bis_skin_checked="1" _msthidden="7">
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/elements/" _msttexthash="233376" _msthidden="1" _msthash="4">Current Data (GP)</a>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/elements/gp-statistics.php" _msttexthash="225407" _msthidden="1" _msthash="5">GPE Statistics</a>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/archives/request.php" _msttexthash="454064" _msthidden="1" _msthash="6">Special Data Request (GP)</a>
+        <div class="dropdown-divider" bis_skin_checked="1"></div>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/elements/supplemental/" _msttexthash="492336" _msthidden="1" _msthash="7">Supplemental Data (SupGP)</a>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/elements/supplemental/supgp-statistics.php" _msttexthash="283790" _msthidden="1" _msthash="8">SupGP Statistics</a>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/archives/sup-request.php" _msttexthash="571441" _msthidden="1" _msthash="9">Special Data Request (SupGP)</a>
+        <a class="dropdown-item" href="https://celestrak.org/NORAD/documentation/" _msttexthash="234962" _msthidden="1" _msthash="10">Documentation</a>
+      </div>
+  	</li>
+  	<li class="nav-item" dropdown="">
+			<a class="nav-link dropdown-toggle" href="https://celestrak.org/NORAD/elements/table.php?GROUP=weather&amp;FORMAT=csv#" id="navbardrop" data-toggle="dropdown" _msttexthash="470314" _msthash="11">Catálogo de satélites</a>
+      <div class="dropdown-menu lightBG mediumSize" bis_skin_checked="1" _msthidden="5">
+        <a class="dropdown-item" href="https://celestrak.org/satcat/search.php" _msttexthash="164801" _msthidden="1" _msthash="12">Search SATCAT</a>
+        <a class="dropdown-item" href="https://celestrak.org/satcat/boxscore.php" _msttexthash="236197" _msthidden="1" _msthash="13">SATCAT Boxscore</a>
+        <a class="dropdown-item" href="https://celestrak.org/satcat/satcat-format.php" _msttexthash="397072" _msthidden="1" _msthash="14">SATCAT Documentation</a>
+        <a class="dropdown-item" href="https://celestrak.org/satcat/launch-boxscore.php" _msthidden="1"><b _msttexthash="256321" _msthidden="1" _msthash="15">Launch Boxscore</b></a>
+        <a class="dropdown-item" href="https://celestrak.org/satcat/launchsites.php" _msttexthash="342082" _msthidden="1" _msthash="16">Maps of Launch Sites</a>
+      </div>
+  	</li>
+
+  	<li class="nav-item" dropdown="">
+			<a class="nav-link dropdown-toggle" href="https://celestrak.org/NORAD/elements/table.php?GROUP=weather&amp;FORMAT=csv#" id="navbardrop" data-toggle="dropdown" _msttexthash="97162" _msthash="17">SÓCRATES</a>
+      <div class="dropdown-menu lightBG mediumSize" bis_skin_checked="1" _msthidden="3">
+        <a class="dropdown-item" href="https://celestrak.org/SOCRATES/" _msttexthash="174265" _msthidden="1" _msthash="18">SOCRATES Plus</a>
+        <a class="dropdown-item" href="https://celestrak.org/SOCRATES/search.php" _msttexthash="329368" _msthidden="1" _msthash="19">Search SOCRATES Plus</a>
+        <a class="dropdown-item" href="https://celestrak.org/SOCRATES/socrates-format.php" _msttexthash="903448" _msthidden="1" _msthash="20">SOCRATES Plus Format Documentation</a>
+      </div>
+  	</li>
+<!--
+    <li class="nav-item">
+      <a class="nav-link" href="https://celestrak.org/SOCRATES/">SOCRATES</a>
+    </li>
+-->
+  	<li class="nav-item" dropdown="">
+			<a class="nav-link dropdown-toggle" href="https://celestrak.org/NORAD/elements/table.php?GROUP=weather&amp;FORMAT=csv#" id="navbardrop" data-toggle="dropdown" _msttexthash="286039" _msthash="21">Datos espaciales</a>
+      <div class="dropdown-menu lightBG mediumSize" bis_skin_checked="1" _msthidden="3">
+        <a class="dropdown-item" href="https://celestrak.org/GPS/" _msttexthash="523276" _msthidden="1" _msthash="22">GPS Status, Almanacs, NANUs</a>
+        <a class="dropdown-item" href="https://celestrak.org/SpaceData/" _msttexthash="694928" _msthidden="1" _msthash="23">Earth Orientation Parameters</a>
+        <a class="dropdown-item" href="https://celestrak.org/SpaceData/" _msttexthash="300833" _msthidden="1" _msthash="24">Space Weather Data</a>
+      </div>
+  	</li><li class="nav-item" dropdown="">
+			<a class="nav-link dropdown-toggle" href="https://celestrak.org/NORAD/elements/table.php?GROUP=weather&amp;FORMAT=csv#" id="navbardrop" data-toggle="dropdown" _msttexthash="152230" _msthash="25">Biblioteca</a>
+      <div class="dropdown-menu lightBG mediumSize" bis_skin_checked="1" _msthidden="3">
+        <a class="dropdown-item" href="https://celestrak.org/columns/" _msttexthash="488020" _msthidden="1" _msthash="26"><i>Satellite Times</i> Columns</a>
+        <a class="dropdown-item" href="https://celestrak.org/publications/" _msttexthash="536978" _msthidden="1" _msthash="27">T.S. Kelso's Publications</a>
+        <a class="dropdown-item" href="https://celestrak.org/software/" _msttexthash="394589" _msthidden="1" _msthash="28">Software Repository</a>
+      </div>
+  	</li>
+  </ul>
+	</div>
+  <div class="container d-flex flex-wrap justify-content-end" bis_skin_checked="1">
+    <form action="https://www.paypal.com/donate" method="post" target="donate">
+    <input type="hidden" name="hosted_button_id" value="9KYKBWM3NAYQG">
+    <input type="image" src="./CelesTrak_files/btn_donateCC_LG.gif" border="0" name="submit" title="Help us fund CelesTrak operations and future development! Even as little as $1/year helps!" alt="Donar con el botón de PayPal" _mstalt="529178" _msthash="29">
+    <img alt="" border="0" src="./CelesTrak_files/pixel.gif" width="1" height="1" yjkdkxrnf="">
+    </form>
+  </div>
+</nav>
+<br>
+
+<h2 class="center" _msttexthash="77883" _msthash="30">Tiempo</h2>
+<h3 class="center" _msttexthash="864110" _msthash="31">Revisado: 10 Oct 2025 08:05:35 UTC (Día 283)</h3>
+
+<p class="center"><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?GROUP=weather&amp;FORMAT=csv" _msttexthash="974948" _msthash="32">Datos de GP más recientes (formato CSV)</a></p>
+
+<table class="center outline" cellpadding="3">
+<tbody><tr class="header"><th colspan="7" style="font-size: 75%" _msttexthash="1360281" _msthash="33">Antigüedad del conjunto de elementos (días)</th></tr>
+<tr><th bgcolor="#00ff00" width="60" style="font-size: 70%" _msttexthash="864513" _msthash="34">0–5</th>
+    <th bgcolor="#99ff00" width="60" style="font-size: 70%" _msttexthash="870740" _msthash="35">5–10</th>
+    <th bgcolor="#ccff00" width="60" style="font-size: 70%" _msttexthash="984087" _msthash="36">10–15</th>
+    <th bgcolor="#ffff00" width="60" style="font-size: 70%" _msttexthash="984022" _msthash="37">15–20</th>
+    <th bgcolor="#ffcc00" width="60" style="font-size: 70%" _msttexthash="984308" _msthash="38">20–25</th>
+    <th bgcolor="#ff9900" width="60" style="font-size: 70%" _msttexthash="984243" _msthash="39">25–30</th>
+    <th bgcolor="#ff0000" width="60" style="font-size: 70%" _msttexthash="16562" _msthash="40">&gt; 30</th></tr>
+</tbody></table>
+&nbsp;
+<div style="width: 1110px; margin: 0 auto;" bis_skin_checked="1">
+<div id="tableID_wrapper" class="dataTables_wrapper" bis_skin_checked="1"><div class="dataTables_length" id="tableID_length" bis_skin_checked="1"><label><font _mstmutation="1" _msttexthash="97786" _msthash="41">Mostrar </font><select name="tableID_length" aria-controls="tableID" class=""><option value="10" _msttexthash="9451" _msthash="42">10</option><option value="25" _msttexthash="10062" _msthash="43">25</option><option value="50" _msttexthash="9815" _msthash="44">50</option><option value="100" _msttexthash="15067" _msthash="45">100</option><option value="-1" _msttexthash="29783" _msthash="46">Todo</option></select><font _mstmutation="1" _msttexthash="112905" _msthash="47"> Entradas</font></label></div><div id="tableID_filter" class="dataTables_filter" bis_skin_checked="1"><label><font _mstmutation="1" _msttexthash="85956" _msthash="48">Buscar:</font><input type="search" class="" placeholder="" aria-controls="tableID"></label></div><table id="tableID" class="center outline striped dataTable" cellpadding="3" width="100%" role="grid" aria-describedby="tableID_info" style="width: 100%;">
+<thead>
+<tr class="header" role="row"><th class="small sorting" width="90" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Designador internacional: activar para ordenar la columna de forma ascendente" style="width: 90px;" _mstaria-label="2416245" _msthash="49" _msttexthash="568243">Designador internacional</th><th class="small sorting_asc" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Número de catálogo NORAD: activar para ordenar la columna descendente" style="width: 50.15px;" _mstaria-label="2070731" _msthash="50" _msttexthash="552591">Número de catálogo de NORAD</th><th class="small sorting" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Nombre: activar para ordenar la columna de forma ascendente" style="width: 187.3px;" _mstaria-label="1105559" _msthash="51" _msttexthash="76193">Nombre</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Período (minutos): activar para ordenar la columna de forma ascendente" style="width: 62.9875px;" _mstaria-label="1783041" _msthash="52" _msttexthash="314860">Período (minutos)</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Inclinación (grados): activar para ordenar la columna ascendente" style="width: 68.4px;" _mstaria-label="2140008" _msthash="53" _msttexthash="407537">Inclinación (grados)</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Altura de apogeo (km): activar para ordenar la columna ascendente" style="width: 50px;" _mstaria-label="1835093" _msthash="54" _msttexthash="280371">Apogeo Altura (km)</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Altura del perigeo (km): actívalo para ordenar la columna ascendente" style="width: 50px;" _mstaria-label="1906346" _msthash="55" _msttexthash="412659">Altura del perigeo (km)</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Excentricidad: activar para ordenar la columna de forma ascendente" style="width: 73.5625px;" _mstaria-label="1602211" _msthash="56" _msttexthash="226317">Excentricidad</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Últimos datos: activar para ordenar columnas ascendentes" style="width: 50px;" _mstaria-label="1461031" _msthash="57" _msttexthash="223314">Últimos datos</th><th class="small sorting" width="50" tabindex="0" aria-controls="tableID" rowspan="1" colspan="1" aria-label="Edad del GP (días): activar para ordenar la columna de forma ascendente" style="width: 50px;" _mstaria-label="1499823" _msthash="58" _msttexthash="836056">Edad del médico de cabecera (días)</th></tr>
+  </thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67366" _msthash="59">2003-048A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2003-048&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30316" _msthash="60">28054</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="293124" _msthash="61">DMSP 5D-3 F16 (EE. UU. 172) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2003-048A+DMSP%205D-3%20F16%20(USA%20172)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36816" _msthash="62">101.81</td>
+  <td class="small" _msttexthash="29744" _msthash="63">99.01</td>
+  <td class="small" _msttexthash="16224" _msthash="64">850</td>
+  <td class="small" _msttexthash="17069" _msthash="65">839</td>
+  <td class="small" _msttexthash="64168" _msthash="66">0.0008016</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=28054&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;28054&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21242" _msthash="67">0.20</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="68003" _msthash="68">2005-049B </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2005-049&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30563" _msthash="69">28912</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="208793" _msthash="70">METEOSAT-9 (MSG-2) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2005-049B+METEOSAT-9%20(MSG-2)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="55133" _msthash="71">1,436.09</td>
+  <td class="small" _msttexthash="23725" _msthash="72">8.79</td>
+  <td class="small" _msttexthash="39494" _msthash="73">35,799</td>
+  <td class="small" _msttexthash="38428" _msthash="74">35,774</td>
+  <td class="small" _msttexthash="65286" _msthash="75">0.0002874</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=28912&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;28912&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="76">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="22126" _msthash="77">0.45</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="66469" _msthash="78">2006-050A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2006-050&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30329" _msthash="79">29522</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="293670" _msthash="80">DMSP 5D-3 F17 (EE. UU. 191) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2006-050A+DMSP%205D-3%20F17%20(USA%20191)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="37765" _msthash="81">101.78</td>
+  <td class="small" _msttexthash="30979" _msthash="82">98.74</td>
+  <td class="small" _msttexthash="16341" _msthash="83">851</td>
+  <td class="small" _msttexthash="16601" _msthash="84">835</td>
+  <td class="small" _msttexthash="64870" _msthash="85">0.0010990</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=29522&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;29522&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21892" _msthash="86">0.25</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="67314" _msthash="87">2008-026A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2008-026&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31408" _msthash="88">32958</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="93028" _msthash="89">FENGYUN 3A </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2008-026A+FENGYUN%203A+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36868" _msthash="90">101.45</td>
+  <td class="small" _msttexthash="31135" _msthash="91">98.66</td>
+  <td class="small" _msttexthash="16484" _msthash="92">834</td>
+  <td class="small" _msttexthash="15912" _msthash="93">820</td>
+  <td class="small" _msttexthash="64727" _msthash="94">0.0009550</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=32958&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;32958&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="22243" _msthash="95">0.55</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67067" _msthash="96">2009-033A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2009-033&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30654" _msthash="97">35491</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="27079" _msthash="98">VA 14 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2009-033A+GOES%2014+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54028" _msthash="99">1,436.12</td>
+  <td class="small" _msttexthash="21489" _msthash="100">1.03</td>
+  <td class="small" _msttexthash="37557" _msthash="101">35,804</td>
+  <td class="small" _msttexthash="37804" _msthash="102">35,770</td>
+  <td class="small" _msttexthash="62751" _msthash="103">0.0004102</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=35491&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;35491&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="104">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21242" _msthash="105">0.20</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="68133" _msthash="106">2009-057A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2009-057&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30719" _msthash="107">35951</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="291161" _msthash="108">DMSP 5D-3 F18 (EE. UU. 210) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2009-057A+DMSP%205D-3%20F18%20(USA%20210)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="37921" _msthash="109">101.79</td>
+  <td class="small" _msttexthash="31681" _msthash="110">98.88</td>
+  <td class="small" _msttexthash="16224" _msthash="111">850</td>
+  <td class="small" _msttexthash="16718" _msthash="112">836</td>
+  <td class="small" _msttexthash="66144" _msthash="113">0.0009981</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=35951&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;35951&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21905" _msthash="114">0.16</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="66417" _msthash="115">2010-008A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2010-008&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="29718" _msthash="116">36411</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="149682" _msthash="117">EWS-G2 (PASA 15) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2010-008A+EWS-G2%20(GOES%2015)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54951" _msthash="118">1,436.08</td>
+  <td class="small" _msttexthash="22360" _msthash="119">0.65</td>
+  <td class="small" _msttexthash="37232" _msthash="120">35,811</td>
+  <td class="small" _msttexthash="37817" _msthash="121">35,761</td>
+  <td class="small" _msttexthash="65338" _msthash="122">0.0005890</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=36411&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;36411&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="123">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21632" _msthash="124">0.23</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="65832" _msthash="125">2010-032A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2010-032&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30888" _msthash="126">36744</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="41119" _msthash="127">COMS 1 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2010-032A+COMS%201+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54028" _msthash="128">1,436.12</td>
+  <td class="small" _msttexthash="22529" _msthash="129">4.18</td>
+  <td class="small" _msttexthash="38402" _msthash="130">35,792</td>
+  <td class="small" _msttexthash="38259" _msthash="131">35,782</td>
+  <td class="small" _msttexthash="63414" _msthash="132">0.0001135</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=36744&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;36744&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="133">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21866" _msthash="134">0.43</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67444" _msthash="135">2010-059A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2010-059&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30017" _msthash="136">37214</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="93223" _msthash="137">FENGYUN 3B </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2010-059A+FENGYUN%203B+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="37765" _msthash="138">101.78</td>
+  <td class="small" _msttexthash="29601" _msthash="139">99.00</td>
+  <td class="small" _msttexthash="17277" _msthash="140">859</td>
+  <td class="small" _msttexthash="16731" _msthash="141">827</td>
+  <td class="small" _msttexthash="64337" _msthash="142">0.0022291</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=37214&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;37214&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21372" _msthash="143">0.21</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="66287" _msthash="144">2011-061A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2011-061&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31824" _msthash="145">37849</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="396344" _msthash="146">CENTRAL NUCLEAR DE SUOMÍ </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2011-061A+SUOMI%20NPP+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36712" _msthash="147">101.44</td>
+  <td class="small" _msttexthash="31408" _msthash="148">98.77</td>
+  <td class="small" _msttexthash="16848" _msthash="149">828</td>
+  <td class="small" _msttexthash="16614" _msthash="150">826</td>
+  <td class="small" _msttexthash="64701" _msthash="151">0.0001358</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=37849&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;37849&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="22022" _msthash="152">0.26</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="66833" _msthash="153">2012-035B </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2012-035&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30706" _msthash="154">38552</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="223327" _msthash="155">METEOSAT-10 (MSG-3) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2012-035B+METEOSAT-10%20(MSG-3)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="53495" _msthash="156">1,436.00</td>
+  <td class="small" _msttexthash="22412" _msthash="157">4.08</td>
+  <td class="small" _msttexthash="39351" _msthash="158">35,789</td>
+  <td class="small" _msttexthash="38103" _msthash="159">35,781</td>
+  <td class="small" _msttexthash="63661" _msthash="160">0.0000912</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=38552&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;38552&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="161">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21762" _msthash="162">0.24</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="67535" _msthash="163">2012-049A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2012-049&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31057" _msthash="164">38771</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="63895" _msthash="165">METOP-B </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2012-049A+METOP-B+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36101" _msthash="166">101.31</td>
+  <td class="small" _msttexthash="31564" _msthash="167">98.69</td>
+  <td class="small" _msttexthash="16146" _msthash="168">822</td>
+  <td class="small" _msttexthash="16861" _msthash="169">819</td>
+  <td class="small" _msttexthash="63973" _msthash="170">0.0002209</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=38771&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;38771&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21502" _msthash="171">0.22</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67509" _msthash="172">2013-038B </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2013-038&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30511" _msthash="173">39216</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="72943" _msthash="174">INSAT-3D </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2013-038B+INSAT-3D+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54392" _msthash="175">1,436.14</td>
+  <td class="small" _msttexthash="22243" _msthash="176">1.27</td>
+  <td class="small" _msttexthash="39026" _msthash="177">35,796</td>
+  <td class="small" _msttexthash="39208" _msthash="178">35,779</td>
+  <td class="small" _msttexthash="65468" _msthash="179">0.0001993</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=39216&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;39216&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="180">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21866" _msthash="181">0.43</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="66560" _msthash="182">2013-052A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2013-052&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30303" _msthash="183">39260</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="93418" _msthash="184">FENGYUN 3C </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2013-052A+FENGYUN%203C+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36829" _msthash="185">101.72</td>
+  <td class="small" _msttexthash="31018" _msthash="186">98.47</td>
+  <td class="small" _msttexthash="16341" _msthash="187">851</td>
+  <td class="small" _msttexthash="16965" _msthash="188">829</td>
+  <td class="small" _msttexthash="64480" _msthash="189">0.0015281</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=39260&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;39260&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21762" _msthash="190">0.24</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67262" _msthash="191">2014-037A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2014-037&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30511" _msthash="192">40069</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="104026" _msthash="193">METEORO-M 2 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2014-037A+METEOR-M%202+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="36101" _msthash="194">101.31</td>
+  <td class="small" _msttexthash="31161" _msthash="195">98.48</td>
+  <td class="small" _msttexthash="16614" _msthash="196">826</td>
+  <td class="small" _msttexthash="16510" _msthash="197">816</td>
+  <td class="small" _msttexthash="65156" _msthash="198">0.0006690</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=40069&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;40069&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21242" _msthash="199">0.20</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="66495" _msthash="200">2014-060A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2014-060&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30459" _msthash="201">40267</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="101751" _msthash="202">HIMAWARI-8 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2014-060A+HIMAWARI-8+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54028" _msthash="203">1,436.12</td>
+  <td class="small" _msttexthash="21268" _msthash="204">0.02</td>
+  <td class="small" _msttexthash="38402" _msthash="205">35,792</td>
+  <td class="small" _msttexthash="38259" _msthash="206">35,782</td>
+  <td class="small" _msttexthash="63414" _msthash="207">0.0001135</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=40267&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;40267&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="208">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21593" _msthash="209">0.50</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67002" _msthash="210">2014-090A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2014-090&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30576" _msthash="211">40367</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="94016" _msthash="212">FENGYUN 2G </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2014-090A+FENGYUN%202G+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54574" _msthash="213">1,436.15</td>
+  <td class="small" _msttexthash="21463" _msthash="214">5.00</td>
+  <td class="small" _msttexthash="37557" _msthash="215">35,804</td>
+  <td class="small" _msttexthash="37960" _msthash="216">35,771</td>
+  <td class="small" _msttexthash="63557" _msthash="217">0.0004007</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=40367&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;40367&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="218">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21736" _msthash="219">0.42</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="66846" _msthash="220">2015-034A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2015-034&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="29939" _msthash="221">40732</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="223847" _msthash="222">METEOSAT-11 (MSG-4) </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2015-034A+METEOSAT-11%20(MSG-4)+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="55601" _msthash="223">1,435.94</td>
+  <td class="small" _msttexthash="22685" _msthash="224">2.57</td>
+  <td class="small" _msttexthash="38883" _msthash="225">35,786</td>
+  <td class="small" _msttexthash="38103" _msthash="226">35,781</td>
+  <td class="small" _msttexthash="64714" _msthash="227">0.0000539</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=40732&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;40732&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="228">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21762" _msthash="229">0.24</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67522" _msthash="230">2015-074A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2015-074&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="29380" _msthash="231">41105</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="103571" _msthash="232">ELEKTRO-L 2 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2015-074A+ELEKTRO-L%202+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="55133" _msthash="233">1,436.09</td>
+  <td class="small" _msttexthash="22334" _msthash="234">6.06</td>
+  <td class="small" _msttexthash="36933" _msthash="235">35,800</td>
+  <td class="small" _msttexthash="38272" _msthash="236">35,773</td>
+  <td class="small" _msttexthash="62972" _msthash="237">0.0003113</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41105&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;41105&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="238">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21892" _msthash="239">0.25</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="67314" _msthash="240">2016-054A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-054&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30303" _msthash="241">41752</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="88933" _msthash="242">INSAT-3DR </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-054A+INSAT-3DR+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="53846" _msthash="243">1,436.11</td>
+  <td class="small" _msttexthash="21255" _msthash="244">0.11</td>
+  <td class="small" _msttexthash="37817" _msthash="245">35,842</td>
+  <td class="small" _msttexthash="37544" _msthash="246">35,732</td>
+  <td class="small" _msttexthash="63908" _msthash="247">0.0013108</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41752&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;41752&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="248">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21359" _msthash="249">1.02</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="67483" _msthash="250">2016-064A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-064&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30732" _msthash="251">41836</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="101959" _msthash="252">HIMAWARI-9 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-064A+HIMAWARI-9+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="54899" _msthash="253">1,436.44</td>
+  <td class="small" _msttexthash="21138" _msthash="254">0.01</td>
+  <td class="small" _msttexthash="37713" _msthash="255">35,805</td>
+  <td class="small" _msttexthash="38259" _msthash="256">35,782</td>
+  <td class="small" _msttexthash="64766" _msthash="257">0.0002745</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41836&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;41836&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="258">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="22503" _msthash="259">0.57</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="67106" _msthash="260">2016-071A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-071&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31122" _msthash="261">41866</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="47632" _msthash="262">PASA 16 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-071A+GOES%2016+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="53846" _msthash="263">1,436.11</td>
+  <td class="small" _msttexthash="22048" _msthash="264">0.08</td>
+  <td class="small" _msttexthash="39494" _msthash="265">35,799</td>
+  <td class="small" _msttexthash="38584" _msthash="266">35,775</td>
+  <td class="small" _msttexthash="64896" _msthash="267">0.0002791</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41866&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;41866&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="268">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21242" _msthash="269">0.20</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="68198" _msthash="270">2016-077A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-077&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="30810" _msthash="271">41882</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="93210" _msthash="272">FENGYUN 4A </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-077A+FENGYUN%204A+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="55133" _msthash="273">1,436.09</td>
+  <td class="small" _msttexthash="22841" _msthash="274">1.68</td>
+  <td class="small" _msttexthash="37232" _msthash="275">35,811</td>
+  <td class="small" _msttexthash="37973" _msthash="276">35,762</td>
+  <td class="small" _msttexthash="66118" _msthash="277">0.0005894</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41882&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="LAN &amp; SMA Graph" onclick="openWindowGEO(&#39;41882&#39;)"><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="278">*G</font><i class="fal fa-chart-line"></i></span></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21866" _msthash="279">0.43</td>
+  </tr><tr align="center" role="row" class="even">
+<td class="small"><font _mstmutation="1" _msttexthash="68380" _msthash="280">2016-078A </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-078&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31096" _msthash="281">41884</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="60216" _msthash="282">CYGFM05 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-078A+CYGFM05+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="29952" _msthash="283">93.25</td>
+  <td class="small" _msttexthash="30563" _msthash="284">34.96</td>
+  <td class="small" _msttexthash="15756" _msthash="285">440</td>
+  <td class="small" _msttexthash="16250" _msthash="286">426</td>
+  <td class="small" _msttexthash="64051" _msthash="287">0.0010391</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41884&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;41884&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="22165" _msthash="288">0.18</td>
+  </tr><tr align="center" role="row" class="odd">
+<td class="small"><font _mstmutation="1" _msttexthash="68575" _msthash="289">2016-078B </font><a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?INTDES=2016-078&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a></td>  <td class="small sorting_1" _msttexthash="31239" _msthash="290">41885</td>
+  <td class="small"><font _mstmutation="1" _msttexthash="60047" _msthash="291">CYGFM04 </font><a target="search" title="Search Google" href="https://www.google.com/search?q=2016-078B+CYGFM04+satellite"><i class="fal fa-search"></i></a></td>
+  <td class="small" _msttexthash="29250" _msthash="292">93.11</td>
+  <td class="small" _msttexthash="30134" _msthash="293">34.93</td>
+  <td class="small" _msttexthash="16003" _msthash="294">433</td>
+  <td class="small" _msttexthash="15548" _msthash="295">420</td>
+  <td class="small" _msttexthash="66521" _msthash="296">0.0009289</td>
+  <td class="small"> <a title="GP (CSV format) Data" href="https://celestrak.org/NORAD/elements/gp.php?CATNR=41885&amp;FORMAT=csv"><i class="fal fa-file-alt"></i></a> <a title="Orbit Data Graph" onclick="openWindowOrbitData(&#39;41885&#39;)"><i class="fal fa-chart-line"></i></a></td>
+  <td bgcolor="#00ff00" class="small" _msttexthash="21723" _msthash="297">0.51</td>
+  </tr></tbody>
+<tfoot>
+<tr class="shade"><td colspan="10" rowspan="1"><font _mstmutation="1" _msttexthash="70317" _msthash="298">Notas: </font><ul style="-webkit-margin-before: 0em; -webkit-margin-after: 0em; -webkit-padding-start: 10px; font-size: 100%;">
+<i class="fal fa-info-circle"></i><font _mstmutation="1" _msttexthash="69741191" _msthash="299"> Enlace a información<br _mstmutation="1" _istranslated="1"> adicional Enlace a consulta de búsqueda personalizada de noticias, información e imágenes<br _mstmutation="1" _istranslated="1"> relacionadas Enlace a la tabla de datos SupGP (formato CSV) (si están disponibles actualmente)<br _mstmutation="1" _istranslated="1"> Enlace a datos<br _mstmutation="1" _istranslated="1"> GP sin procesar (formato CSV) Enlace a datos<br _mstmutation="1" _istranslated="1"> SATCAT y en la columna Designador internacional son para todos los objetos asociados con ese lanzamiento </font><i class="fal fa-search"></i><i class="fas fa-table"></i><i class="fal fa-file-alt"></i><i class="fal fa-satellite"></i><i class="fal fa-info-circle"></i><i class="fal fa-file-alt"></i><br><span style="color: #ff0000"><font _mstmutation="1" _msttexthash="10894" _msthash="300">*D</font><i class="fal fa-chart-line"></i></span><font _mstmutation="1" _msttexthash="5117060" _msthash="301"> Enlace al gráfico de apogeo, perigeo y excentricidad para posibles decaimientos (apogeo &lt; 300 km) </font><br><span style="color: #006400"><font _mstmutation="1" _msttexthash="11206" _msthash="302">*G</font><i class="fal fa-chart-line"></i></span><font _mstmutation="1" _msttexthash="132183090" _msthash="303"> Enlace al gráfico de longitud del nodo ascendente (LAN) y semieje mayor medio (SMA) para altitud GEO -200 km a +400 km <br _mstmutation="1" _istranslated="1"> Enlace al gráfico de datos de órbita: ascensión recta del nodo ascendente (RAAN), altitud media del semieje mayor (SMA),
+excentricidad, inclinación y argumento del perigeo. <br _mstmutation="1" _istranslated="1">Un <span style="color: #ff0000" _mstmutation="1" _istranslated="1">nombre</span> rojo significa que el objeto ya se ha desintegrado de la órbita (como se muestra en el SATCAT). <br _mstmutation="1" _istranslated="1">Un <span style="color: #f37413" _mstmutation="1" _istranslated="1">nombre</span> naranja significa que el objeto está en la <a href="https://celestrak.org/NORAD/elements/table-last.php?SPECIAL=impending" _mstmutation="1" _istranslated="1">lista de desintegraciones inminentes</a> (próximos 7 días) de SOCRATES Plus. </font><i class="fal fa-chart-line"></i></ul></td></tr>
+</tfoot>
+</table><div class="dataTables_info" id="tableID_info" role="status" aria-live="polite" bis_skin_checked="1" _msttexthash="749632" _msthash="304">Mostrando del 1 al 25 de 70 entradas</div><div class="dataTables_paginate paging_full_numbers" id="tableID_paginate" bis_skin_checked="1"><a class="paginate_button first disabled" aria-controls="tableID" data-dt-idx="0" tabindex="-1" id="tableID_first" _msttexthash="96577" _msthash="305">Primero</a><a class="paginate_button previous disabled" aria-controls="tableID" data-dt-idx="1" tabindex="-1" id="tableID_previous" _msttexthash="116246" _msthash="306">Anterior</a><span><a class="paginate_button current" aria-controls="tableID" data-dt-idx="2" tabindex="0" _msttexthash="4459" _msthash="307">1</a><a class="paginate_button " aria-controls="tableID" data-dt-idx="3" tabindex="0" _msttexthash="4550" _msthash="308">2</a><a class="paginate_button " aria-controls="tableID" data-dt-idx="4" tabindex="0" _msttexthash="4641" _msthash="309">3</a></span><a class="paginate_button next" aria-controls="tableID" data-dt-idx="5" tabindex="0" id="tableID_next" _msttexthash="113945" _msthash="310">Próximo</a><a class="paginate_button last" aria-controls="tableID" data-dt-idx="6" tabindex="0" id="tableID_last" _msttexthash="91195" _msthash="311">Último</a></div></div>
+</div>
+
+<br>
+<footer class="footer lightBG">
+	<div class="d-flex justify-content-between align-items-center" bis_skin_checked="1">
+		<span class="NOmobile">
+		<img src="./CelesTrak_files/CT-icon-256-t.png" alt="CelesTrak" height="100" style="padding-left: 25px; padding-right: 50px;" _mstalt="129701" _msthash="312">
+		</span>
+  	<span class="center mediumSize" style="padding-top: 10px; padding-bottom: 10px; font-style: italic; margin: auto;">
+    	<font _mstmutation="1" _msttexthash="26683592" _msthash="313"><a href="https://celestrak.org/webmaster.php" title="About the Webmaster" _mstmutation="1" _istranslated="1">Dr. T.S. Kelso</a> <a href="mailto:TS.Kelso@celestrak.org" _mstmutation="1" _istranslated="1">[TS.Kelso@celestrak.org]</a><br _mstmutation="1" _istranslated="1"> Siga <a href="https://bsky.app/profile/tskelso.bsky.social" _mstmutation="1" _istranslated="1">@TSKelso</a> en Bluesky<br _mstmutation="1" _istranslated="1"> Última actualización: 10 de octubre de 2025 08:05:35 UTC<br _mstmutation="1" _istranslated="1"> Consultado 2,511,126 veces<br _mstmutation="1" _istranslated="1"> Hora actual del sistema: 10 de octubre de 2025 09:05:12 UTC<br _mstmutation="1" _istranslated="1"> <a tabindex="0" title="" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="We do not use cookies on CelesTrak and
+  		we do not collect any personal information, other than IP addresses, which
+  		are used to detect and block malicious activity and to assess system
+  		performance. We do not use IP addresses for tracking or any other
+  		purposes. No personal data is shared with third parties." data-original-title="CelesTrak&#39;s Simple Privacy Policy" _mstmutation="1" _istranslated="1"><span style="color:blue" _istranslated="1">
+ Política de privacidad simple</span></a></font><!--    	Follow <a href="https://x.com/CelesTrak">@CelesTrak</a> and <a href="https://x.com/TSKelso">@TSKelso</a> on X<br> -->
+  	</span>
+		<span class="NOmobile">
+		<img src="./CelesTrak_files/CT-icon-256-t.png" alt="CelesTrak" height="100" style="padding-left: 50px; padding-right: 25px;" _mstalt="129701" _msthash="314">
+		</span>
+	</div>
+</footer>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+});
+</script>
+</div>
+
+
+
+
+</body></html>
